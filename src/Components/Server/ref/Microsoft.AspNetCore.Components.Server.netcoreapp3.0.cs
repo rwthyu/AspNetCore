@@ -5,15 +5,14 @@ namespace Microsoft.AspNetCore.Builder
 {
     public static partial class ComponentEndpointConventionBuilderExtensions
     {
-        public static Microsoft.AspNetCore.Builder.IEndpointConventionBuilder AddComponent(this Microsoft.AspNetCore.Builder.IEndpointConventionBuilder builder, System.Type componentType, string selector) { throw null; }
-        public static Microsoft.AspNetCore.Builder.IEndpointConventionBuilder AddComponent<TComponent>(this Microsoft.AspNetCore.Builder.IEndpointConventionBuilder builder, string selector) { throw null; }
+        public static TBuilder AddComponent<TBuilder>(this TBuilder builder, System.Type componentType, string selector) where TBuilder : Microsoft.AspNetCore.SignalR.HubEndpointConventionBuilder { throw null; }
     }
     public static partial class ComponentEndpointRouteBuilderExtensions
     {
-        public static Microsoft.AspNetCore.Builder.IEndpointConventionBuilder MapBlazorHub(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints) { throw null; }
-        public static Microsoft.AspNetCore.Builder.IEndpointConventionBuilder MapBlazorHub(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints, System.Type componentType, string selector, string path) { throw null; }
-        public static Microsoft.AspNetCore.Builder.IEndpointConventionBuilder MapBlazorHub<TComponent>(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints, string selector) where TComponent : Microsoft.AspNetCore.Components.IComponent { throw null; }
-        public static Microsoft.AspNetCore.Builder.IEndpointConventionBuilder MapBlazorHub<TComponent>(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints, string selector, string path) where TComponent : Microsoft.AspNetCore.Components.IComponent { throw null; }
+        public static Microsoft.AspNetCore.SignalR.HubEndpointConventionBuilder MapBlazorHub(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints) { throw null; }
+        public static Microsoft.AspNetCore.SignalR.HubEndpointConventionBuilder MapBlazorHub(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints, System.Type componentType, string selector, string path) { throw null; }
+        public static Microsoft.AspNetCore.SignalR.HubEndpointConventionBuilder MapBlazorHub<TComponent>(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints, string selector) where TComponent : Microsoft.AspNetCore.Components.IComponent { throw null; }
+        public static Microsoft.AspNetCore.SignalR.HubEndpointConventionBuilder MapBlazorHub<TComponent>(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder endpoints, string selector, string path) where TComponent : Microsoft.AspNetCore.Components.IComponent { throw null; }
     }
 }
 namespace Microsoft.AspNetCore.Components.Browser.Rendering

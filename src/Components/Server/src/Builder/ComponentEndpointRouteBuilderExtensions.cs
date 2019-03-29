@@ -5,6 +5,7 @@ using System;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Microsoft.AspNetCore.Builder
 {
@@ -18,7 +19,7 @@ namespace Microsoft.AspNetCore.Builder
         /// </summary>
         /// <param name="endpoints">The <see cref="IEndpointRouteBuilder"/>.</param>
         /// <returns>The <see cref="IEndpointConventionBuilder"/>.</returns>
-        public static IEndpointConventionBuilder MapBlazorHub(this IEndpointRouteBuilder endpoints)
+        public static HubEndpointConventionBuilder MapBlazorHub(this IEndpointRouteBuilder endpoints)
         {
             if (endpoints == null)
             {
@@ -36,7 +37,7 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="endpoints">The <see cref="IEndpointRouteBuilder"/>.</param>
         /// <param name="selector">The selector for the <typeparamref name="TComponent"/>.</param>
         /// <returns>The <see cref="IEndpointConventionBuilder"/>.</returns>
-        public static IEndpointConventionBuilder MapBlazorHub<TComponent>(
+        public static HubEndpointConventionBuilder MapBlazorHub<TComponent>(
             this IEndpointRouteBuilder endpoints,
             string selector) where TComponent: IComponent
         {
@@ -62,7 +63,7 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="selector">The selector for the <typeparamref name="TComponent"/>.</param>
         /// <param name="path">The path to map to which the <see cref="ComponentHub"/> will be mapped.</param>
         /// <returns>The <see cref="IEndpointConventionBuilder"/>.</returns>
-        public static IEndpointConventionBuilder MapBlazorHub<TComponent>(
+        public static HubEndpointConventionBuilder MapBlazorHub<TComponent>(
             this IEndpointRouteBuilder endpoints,
             string selector,
             string path) where TComponent : IComponent
@@ -94,7 +95,7 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="selector">The selector for the <paramref name="componentType"/>.</param>
         /// <param name="path">The path to map to which the <see cref="ComponentHub"/> will be mapped.</param>
         /// <returns>The <see cref="IEndpointConventionBuilder"/>.</returns>
-        public static IEndpointConventionBuilder MapBlazorHub(
+        public static HubEndpointConventionBuilder MapBlazorHub(
             this IEndpointRouteBuilder endpoints,
             Type componentType,
             string selector,
