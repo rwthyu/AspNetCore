@@ -45,15 +45,11 @@ if errorlevel 1 (
 
 set FLAKY_FILTER="Flaky:All=true|Flaky:Helix:All=true|Flaky:Helix:Queue:All=true|Flaky:Helix:Queue:%HELIX%=true"
 echo Running known-flaky tests.
-%DOTNET_ROOT%\dotnet vstest %target% --logger:trx;LogFileName=test-results.xml --TestCaseFilter:%FLAKY_FILTER%
+%DOTNET_ROOT%\dotnet vstest %target% --logger:trx --TestCaseFilter:%FLAKY_FILTER%
 if errorlevel 1 (
     echo Failure in flaky test 1>&2
     REM DO NOT EXIT and DO NOT SET EXIT_CODE to 1
 )
-
-rem Normalize test result file name
-
-ren TestResults\test-results*.xml test-results.xml
 
 exit %exit_code%
 
