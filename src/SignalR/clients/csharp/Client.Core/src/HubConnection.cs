@@ -1261,7 +1261,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
             // Cancel any outstanding invocations within the connection lock
             connectionState.CancelOutstandingInvocations(connectionState.CloseException);
 
-            if (connectionState.Stopping || _reconnectPolicy != null)
+            if (connectionState.Stopping || _reconnectPolicy == null)
             {
                 if (connectionState.CloseException != null)
                 {
@@ -1416,7 +1416,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
                 }
             }
 
-            // There is no need to start a new task if there is no Closed event registered
+            // There is no need to start a new task if there is no Reconnecting event registered
             if (reconnecting != null)
             {
                 // Fire-and-forget the closed event
@@ -1443,7 +1443,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
                 }
             }
 
-            // There is no need to start a new task if there is no Closed event registered
+            // There is no need to start a new task if there is no Reconnected event registered
             if (reconnected != null)
             {
                 // Fire-and-forget the reconnected event
