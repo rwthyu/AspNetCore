@@ -77,7 +77,9 @@ export class AuthorizeService {
   public generateLogoutCode(): void {
     const data = new Uint8Array(44);
     window.crypto.getRandomValues(data);
+    /* tslint:disable:no-bitwise */
     const rawCode = Array.from(data).map(e => e >> 2);
+    /* tslint:enable:no-bitwise */
     const code = rawCode
       .map(e => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.charAt(e))
       .reduce((result, current) => result += current, '');
