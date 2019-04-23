@@ -56,8 +56,8 @@ export class AuthorizeService {
 
         let result = 1;
         for (let i = 0; i < key.length; i++) {
-            var currentKey = key.charAt(i);
-            var currentData = data.charAt(i);
+            const currentKey = key.charAt(i);
+            const currentData = data.charAt(i);
 
             result = result & (currentKey === currentData ? 1 : 0);
         }
