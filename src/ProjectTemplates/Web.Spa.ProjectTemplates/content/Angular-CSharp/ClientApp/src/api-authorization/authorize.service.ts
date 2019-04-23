@@ -101,7 +101,9 @@ export class AuthorizeService {
       const currentKey = key.charAt(i);
       const currentData = data.charAt(i);
 
+      /* tslint:disable:no-bitwise */
       result = result & (currentKey === currentData ? 1 : 0);
+      /* tslint:enable:no-bitwise */
     }
     return result === 1;
   }
