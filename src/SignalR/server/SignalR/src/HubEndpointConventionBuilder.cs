@@ -9,7 +9,7 @@ namespace Microsoft.AspNetCore.SignalR
     /// <summary>
     /// Builds conventions that will be used for customization of Hub <see cref="EndpointBuilder"/> instances.
     /// </summary>
-    public sealed class HubEndpointConventionBuilder : IEndpointConventionBuilder
+    public class HubEndpointConventionBuilder : IEndpointConventionBuilder
     {
         private readonly IEndpointConventionBuilder _endpointConventionBuilder;
 
