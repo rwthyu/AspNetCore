@@ -118,6 +118,7 @@ export class Login extends Component {
     }
 
     redirectToProfile() {
+        authService.generateLogoutCode();
         this.redirectToApiAuthorizationPath(ApplicationPaths.IdentityManagePath);
     }
 

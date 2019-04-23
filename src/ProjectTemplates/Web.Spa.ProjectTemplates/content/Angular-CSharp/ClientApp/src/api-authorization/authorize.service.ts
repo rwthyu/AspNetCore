@@ -74,6 +74,38 @@ export class AuthorizeService {
         map(user => user && user.access_token));
   }
 
+  public generateLogoutCode(): void {
+    const data = new Uint8Array(44);
+    window.crypto.getRandomValues(data);
+    const rawCode = Array.from(data).map(e => e >> 2);
+    const code = rawCode
+      .map(e => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.charAt(e))
+      .reduce((result, current) => result += current, '');
+    localStorage.setItem(`${ApplicationName}.logout`, code);
+    document.cookie = `${ApplicationName}.logout=${code}`;
+  }
+
+  public hasValidLogoutCode(): boolean {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    if (!urlSearchParams.has('logout-code')) {
+      return false;
+    }
+    const key = urlSearchParams.get('logout-code');
+    const data = window.localStorage.getItem(`${ApplicationName}.logout`);
+    if (key.length !== data.length) {
+      return false;
+    }
+
+    let result = 1;
+    for (let i = 0; i < key.length; i++) {
+      var currentKey = key.charAt(i);
+      var currentData = data.charAt(i);
+
+      result = result & (currentKey === currentData ? 1 : 0);
+    }
+    return result === 1;
+  }
+
   // We try to authenticate the user in three different ways:
   // 1) We try to see if we can authenticate the user silently. This happens
   //    when the user is already logged in on the IdP and is done using a hidden iframe

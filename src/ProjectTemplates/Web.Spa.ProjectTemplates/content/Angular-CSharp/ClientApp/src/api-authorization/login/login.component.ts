@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit {
   }
 
   private redirectToProfile(): void {
+    this.authorizeService.generateLogoutCode();
     this.redirectToApiAuthorizationPath(ApplicationPaths.IdentityManagePath);
   }
 
