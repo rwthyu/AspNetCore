@@ -13,7 +13,11 @@ namespace Microsoft.AspNetCore.SignalR
     {
         private readonly IEndpointConventionBuilder _endpointConventionBuilder;
 
-        internal HubEndpointConventionBuilder(IEndpointConventionBuilder endpointConventionBuilder)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HubEndpointConventionBuilder"/> class.
+        /// </summary>
+        /// <param name="endpointConventionBuilder">The nested convention builder.</param>
+        public HubEndpointConventionBuilder(IEndpointConventionBuilder endpointConventionBuilder)
         {
             _endpointConventionBuilder = endpointConventionBuilder;
         }

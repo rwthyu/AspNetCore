@@ -22,7 +22,7 @@ namespace Microsoft.AspNetCore.SignalR
     }
     public partial class HubEndpointConventionBuilder : Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
     {
-        internal HubEndpointConventionBuilder() { }
+        public HubEndpointConventionBuilder(Microsoft.AspNetCore.Builder.IEndpointConventionBuilder endpointConventionBuilder) { }
         public void Add(System.Action<Microsoft.AspNetCore.Builder.EndpointBuilder> convention) { }
     }
     public partial class HubRouteBuilder

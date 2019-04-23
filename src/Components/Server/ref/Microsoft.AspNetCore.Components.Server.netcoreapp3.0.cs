@@ -95,7 +95,7 @@ namespace Microsoft.AspNetCore.SignalR
 {
     public partial class ComponentEndpointConventionBuilder : Microsoft.AspNetCore.SignalR.HubEndpointConventionBuilder
     {
-        internal ComponentEndpointConventionBuilder() { }
+        internal ComponentEndpointConventionBuilder() : base (default(Microsoft.AspNetCore.Builder.IEndpointConventionBuilder)) { }
     }
 }
 namespace Microsoft.Extensions.DependencyInjection
