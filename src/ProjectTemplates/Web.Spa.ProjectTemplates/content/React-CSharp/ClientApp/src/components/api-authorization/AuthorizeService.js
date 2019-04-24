@@ -40,7 +40,7 @@ export class AuthorizeService {
             .map(e => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.charAt(e))
             .reduce((result, current) => result += current, '');
         localStorage.setItem(`${ApplicationName}.logout`, code);
-        document.cookie = `${ApplicationName}.logout=${code}`;
+        document.cookie = `${ApplicationName}.logout=${code};secure`;
     }
 
     hasValidLogoutCode() {
